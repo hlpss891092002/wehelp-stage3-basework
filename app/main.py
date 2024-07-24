@@ -12,15 +12,15 @@ from pydantic import BaseModel
 from typing import Annotated
 from app.model.message_method import insert_message, get_all_message
 
-logger = logging.getLogger(__name__)
-Format = ' %(asctime)s - %(message)s'
-logging.basicConfig(filename='app.log', encoding='utf-8', level=logging.INFO, format=Format)
+# logger = logging.getLogger(__name__)
+# Format = ' %(asctime)s - %(message)s'
+# logging.basicConfig(filename='app.log', encoding='utf-8', level=logging.INFO, format=Format)
 
-class LogRequestMiddleware(BaseHTTPMiddleware):
-		async def dispatch(self, request:Request, call_next):
-				logger.info(f"IP : {request.client.host}, method : {request.method},  to URL: {request.url.path}'")
-				response = await call_next(request)
-				return response
+# class LogRequestMiddleware(BaseHTTPMiddleware):
+# 		async def dispatch(self, request:Request, call_next):
+# 				logging.info(f"IP : {request.client.host}, method : {request.method},  to URL: {request.url.path}'")
+# 				response = await call_next(request)
+# 				return response
 
 app= FastAPI()
 app.mount("/static", StaticFiles(directory="app/static"), name="static")

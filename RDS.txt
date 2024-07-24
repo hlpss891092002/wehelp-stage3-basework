@@ -1,8 +1,0 @@
-Master username
-admin
-
-Master password
-MHvdi9ZOSJohZBb1kklO
-
-Endpoint
-my-database-1.c1couyy0sf6h.ap-northeast-2.rds.amazonaws.com

@@ -5,9 +5,9 @@ import logging
 from dotenv import load_dotenv
 
 load_dotenv()
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 Format = ' %(asctime)s - %(message)s'
-logging.basicConfig(filename='message_db.log', encoding='utf-8', level=logging.INFO, format=Format)
+# logging.basicConfig(filename='message_db.log', encoding='utf-8', level=logging.INFO, format=Format)
 
 
 def connection():
@@ -39,11 +39,11 @@ def insert_message(message, cdn_url):
     cursor.execute(sql, val)
     con.commit()
     print(f"insert{message} in table message")
-    logger.info(f"insert{message} in table message")
+    # logger.info(f"insert{message} in table message")
     return {"message" : message, "image_cdn_url" : cdn_url}
   except Exception as e:
     print( f"{e}")
-    logger.warning(f"{e}")
+    # logger.warning(f"{e}")
   finally:
     cursor.close()
     con.close()
@@ -55,10 +55,11 @@ def get_all_message():
     sql="""SELECT * FROM messages ORDER BY id DESC"""
     cursor.execute(sql,)
     raw_data = cursor.fetchall()
-    logger.info(f"get all message")
+    # logger.info(f"get all message")
     return raw_data
   except Exception as e:
-    logger.warning(f"{e}")
+    print(f"{e}")
+    # logger.warning(f"{e}")
   finally:
     cursor.close()
     con.close()
@@ -70,10 +71,11 @@ def get_all_message():
     sql="""SELECT * FROM messages ORDER BY id DESC"""
     cursor.execute(sql,)
     raw_data = cursor.fetchall()
-    logger.info(f"get all message")
+    # logger.info(f"get all message")
     return raw_data
   except Exception as e:
-    logger.warning(f"{e}")
+    print(f"{e}")
+    # logger.warning(f"{e}")
   finally:
     cursor.close()
     con.close()
