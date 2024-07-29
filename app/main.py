@@ -84,4 +84,6 @@ async def return_messages():
 		print(f"{e}")
 		return str(e)
 
-	
+@app.get("/loaderio-88dd1fa489f034e6ca883245bcf9ae1a")
+async def return_messages():
+	return FileResponse("app/loaderio-88dd1fa489f034e6ca883245bcf9ae1a.txt", media_type="text")
